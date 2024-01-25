@@ -1,2 +1,1 @@
-# AngularApp
-AngularApp
+# FrontendApps

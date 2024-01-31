@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'complex_counter.dart';
+// import 'complex_counter.dart';
 
 // The main() function is the entry point of the Flutter app. It calls runApp() and passes an instance of MyApp.
 // MyApp is a stateless widget representing the overall structure of the app. It uses MaterialApp to define the app's visual structure.
@@ -36,6 +36,7 @@ void main() {
 // Stateful widgets consist of two classes: the widget itself (extending StatefulWidget) and the state class (extending State).
 //The state class holds the mutable state.
 
+//-------------------------------Simple counter
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 
@@ -64,10 +65,10 @@ void main() {
 //     });
 //   }
 
-//The Scaffold widget is a basic structure for a Material Design page.
-//It provides a framework for the primary visual elements of an app's UI,
-//including the app bar, body, floating action button, and more.
-//It is a commonly used widget to structure the overall layout of a screen.
+// The Scaffold widget is a basic structure for a Material Design page.
+// It provides a framework for the primary visual elements of an app's UI,
+// including the app bar, body, floating action button, and more.
+// It is a commonly used widget to structure the overall layout of a screen.
 
 //   @override
 //   Widget build(BuildContext context) {
@@ -98,14 +99,72 @@ void main() {
 //   }
 // }
 
-//More Complex counter
+// //-------------------------------More Complex counter
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         // This is the theme of your application.
+//         //
+//         // TRY THIS: Try running your application with "flutter run". You'll see
+//         // the application has a purple toolbar. Then, without quitting the app,
+//         // try changing the seedColor in the colorScheme below to Colors.green
+//         // and then invoke "hot reload" (save your changes or press the "hot
+//         // reload" button in a Flutter-supported IDE, or press "r" if you used
+//         // the command line to start the app).
+//         //
+//         // Notice that the counter didn't reset back to zero; the application
+//         // state is not lost during the reload. To reset the state, use hot
+//         // restart instead.
+//         //
+//         // This works for code too, not just values: Most code changes can be
+//         // tested with just a hot reload.
+//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+//         useMaterial3: true,
+//       ),
+//       home: const ComplexCounterApp(),
+//     );
+//   }
+// }
+
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: ComplexCounterApp(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: const RootPage(),
+    );
+  }
+}
+
+class RootPage extends StatefulWidget {
+  const RootPage({Key? key}) : super(key: key);
+
+  @override
+  State<RootPage> createState() => _RootPageState();
+}
+
+class _RootPageState extends State<RootPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter"),
+        backgroundColor: Colors.green, // Set the background color explicitly
+      ),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            debugPrint('Floating Action Button');
+          },
+          child: const Icon(Icons.add)),
     );
   }
 }

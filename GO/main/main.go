@@ -204,8 +204,14 @@ func main() {
 	// hours := 12
 	// fmt.Println(hours * year)
 
-	x := 2
-	fmt.Println(-x)
+	// x := 2
+	// fmt.Println(-x)
+
+	// str := "Test1"
+	// str2 := "Test2"
+	// out := str == str2
+	// fmt.Println(out)
+
 }
 
 // const (

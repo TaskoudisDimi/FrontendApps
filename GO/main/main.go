@@ -3,12 +3,13 @@ package main
 
 //import is a Go keyword that tells the Go compiler which other packages you want to use in this file.
 
-//"strings"
 import (
 	"fmt"
 )
 
 //Go is a statically typed language. Statically typed means that each statement in the program is checked at compile time.
+
+// var p *int
 
 func main() {
 	// //In the “Hello, World!” program, the string literal is "Hello, World!" while the string value is Hello, World! without the quotation marks.
@@ -212,7 +213,205 @@ func main() {
 	// out := str == str2
 	// fmt.Println(out)
 
+	// a, b := swap("Hello", "World")
+	// fmt.Println(a, b)
+
+	// fmt.Println(split(17))
+
+	// sum := 1
+	// for sum < 1000 {
+	// 	sum += sum
+	// }
+	// fmt.Println(sum)
+
+	// switch os := runtime.GOOS; os {
+	// case "darwin":
+	// 	fmt.Println("OS X.")
+	// case "linux":
+	// 	fmt.Println("Linux")
+	// default:
+	// 	fmt.Printf("%s.\n", os)
+	// }
+
+	//Note: Time in the Go playground always appears to start at 2009-11-10 23:00:00 UTC, a value whose significance is left as an exercise for the reader.
+	// today := time.Now().Weekday()
+	// switch time.Saturday {
+	// case today + 0:
+	// 	fmt.Println("Today")
+	// case today + 1:
+	// 	fmt.Println("Tomorrow")
+	// case today + 2:
+	// 	fmt.Println("The day after tomorrow")
+	// default:
+	// 	fmt.Println("Too far away")
+	// }
+
+	// t := time.Now()
+	// switch {
+	// case t.Hour() < 12:
+	// 	fmt.Println("Good morning")
+	// case t.Hour() < 17:
+	// 	fmt.Println("Good afternoon")
+	// default:
+	// 	fmt.Println("Good evening")
+	// }
+
+	// //A defer statement defers the execution of a function until the surrounding function returns.
+	// //The deferred call's arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
+	// defer fmt.Println("World")
+	// fmt.Println("Hello")
+
+	// //Deferred function calls are pushed onto a stack. When a function returns, its deferred calls are executed in last-in-first-out order.
+	// fmt.Println("Start counting")
+	// for i := 0; i < 10; i++ {
+	// 	defer fmt.Println(i)
+	// }
+	// fmt.Println("Done")
+
+	//Go has pointers. A pointer holds the memory address of a value.
+	// //The type *T is a pointer to a T value. Its zero value is nil.
+	// //The & operator generates a pointer to its operand.
+	// //The * operator denotes the pointer's underlying value.
+	// i, j := 42, 2701
+
+	// p := &i         // point to i
+	// fmt.Println(*p) // read i through the pointer
+	// *p = 21         // set i through the pointer
+	// fmt.Println(i)  // see the new value of i
+
+	// p = &j         // point to j
+	// *p = *p / 37   // divide j through the pointer
+	// fmt.Println(j) // see the new value of j
+
+	// fmt.Println(Vertex{1, 2})
+	// v := Vertex{1, 2}
+	// v.X = 2
+	// fmt.Println(v)
+
+	// v := Vertex{1, 2}
+	// p := &v
+	// p.X = 1e9
+	// fmt.Println(v)
+
+	//A struct literal denotes a newly allocated struct value by listing the values of its fields.
+	// fmt.Println(v1, p1, v2, v3)
+
+	//A slice literal is like an array literal without the length.
+	// q := []int{2, 3, 4, 5}
+	// fmt.Println(q)
+
+	// r := []bool{true, false, true, true}
+	// fmt.Println(r)
+
+	// s := []struct {
+	// 	i int
+	// 	b bool
+	// }{
+	// 	{2, true},
+	// 	{9, false},
+	// 	{1, true},
+	// }
+	// fmt.Println(s)
+
+	//When slicing, you may omit the high or low bounds to use their defaults instead.
+	//The default is zero for the low bound and the length of the slice for the high bound.
+	// s := []int{2, 3, 5, 7, 11, 13}
+
+	// s = s[1:4]
+	// fmt.Println(s)
+
+	// s = s[:2]
+	// fmt.Println(s)
+
+	// s = s[1:]
+	// fmt.Println(s)
+
+	// //A slice has both a length and a capacity.
+	// //The length of a slice is the number of elements it contains.
+	// //The capacity of a slice is the number of elements in the underlying array, counting from the first element in the slice.
+	// s := []int{2, 3, 5, 7, 8}
+	// printSlice(s)
+	// s = s[:0]
+	// printSlice(s)
+
+	// var s []int
+	// fmt.Println(s, len(s), cap(s))
+	// if s == nil {
+	// 	fmt.Println("The slice = null")
+	// }
+
+	// //Slices can be created with the built-in make function; this is how you create dynamically-sized arrays.
+	// a := make([]int, 5) //len(a) = 5
+	// fmt.Println(a)
+
+	// b := make([]int, 0, 6) // len(b) = 0, cap(b) = 6
+	// fmt.Println(b)
+
+	// //It is common to append new elements to a slice, and so Go provides a built-in append function.
+	// var s []int
+	// fmt.Println(s)
+
+	// s = append(s, 0)
+	// printSlice(s)
+
+	//The range form of the for loop iterates over a slice or map.
+	//When ranging over a slice, two values are returned for each iteration. The first is the index, and the second is a copy of the element at that index.
+	// for i, v := range []int{0, 1, 2, 3, 4, 5} {
+	// 	fmt.Printf("2**%d = %d\n", i, v)
+	// }
+
+	// // You can skip the index or value by assigning to _.
+	// // for i, _ := range pow
+	// // for _, value := range pow
+	// // If you only want the index, you can omit the second variable.
+	// // for i := range pow
+	// pow := make([]int, 10)
+	// fmt.Println(pow)
+	// for i := range pow {
+	// 	pow[i] = 1 << uint(i) //2**i
+	// }
+	// for _, value := range pow {
+	// 	fmt.Printf("%d\n", value)
+	// }
+
+	////Map
+	// fmt.Println(m)
+
+	// //Mutating Maps
+	// m := make(map[string]int)
+	// m["Answer"] = 42
+	// fmt.Println("The value:", m["Answer"])
+
+	// delete(m, "Answer")
+	// fmt.Println("The value:", m["Answer"])
+
+	// v, ok := m["Answer"]
+	// fmt.Println("The value:", v, "Present?", ok)
+
+	//Function values
+	// hypot := func(x, y float64) float64 {
+	// 	return math.Sqrt(x*x + y*y)
+	// }
+	// fmt.Println(hypot(5, 12))
+
+	// fmt.Println(compute(hypot))
+	// fmt.Println(compute(math.Pow))
+
 }
+
+// func printSlice(s []int) {
+// 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+// }
+
+// func split(sum int) (x, y int) {
+// 	x = sum * 4 / 9
+// 	y = sum - x
+// 	return
+// }
+
+// func swap(x, y string) (string, string) {
+// 	return y, x
+// }
 
 // const (
 // 	year   = 1000
@@ -220,13 +419,44 @@ func main() {
 // )
 
 // var g = "global"
-
 // func printLocal() {
 // 	l := "local"
 // 	fmt.Println(l)
 // }
 
+// type Vertex struct {
+// 	X int
+// 	Y int
+// }
+
+// var (
+// 	v1 = Vertex{1, 2}  // has type Vertex
+// 	v2 = Vertex{X: 1}  // Y:0 is implicit
+// 	v3 = Vertex{}      // X:0 and Y:0
+// 	p1 = &Vertex{1, 2} // has type *Vertex
+// )
+
+// type Vertex struct {
+// 	Lat, Long float64
+// }
+
+// var m = map[string]Vertex{
+// 	"Bell Labs": Vertex{
+// 		40.68433, -74.39967,
+// 	},
+// 	"Google": Vertex{
+// 		37.42202, -122.08408,
+// 	},
+// }
+
+// Function values
+// Functions are values too. They can be passed around just like other values.
+
+// Function values may be used as function arguments and return values.
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+
 //Go programs need to compile before they run. When you call go run with the name of a file,
 //in this case hello.go, the go command will compile the application and then run the resulting binary.
-
 //Go applications require a main package and exactly one main() function that serves as the entry point for the application.

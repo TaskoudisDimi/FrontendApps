@@ -63,7 +63,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - /media/dimitristaskoudis/HardDisk1/Codes/AssistantApp/Assistant/assistantapp/asstets/images/
+    - /media/dimitristaskoudis/HardDisk1/Codes/FrontendApps/ToDoFlutter/ToDo/asstets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
